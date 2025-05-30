@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "lint-and-format",
+      "type": "shell",
+      "command": "npx eslint . --ext .js,.mjs, --fix ; if ($?) { npx prettier . --write }",
+      "problemMatcher": ["$eslint-stylish"]
+    }
+  ]
+}
