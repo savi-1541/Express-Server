@@ -11,7 +11,11 @@ export default defineConfig([
     languageOptions: { globals: globals.node, sourceType: "module" },
     rules: {
       "no-console": "warn",
-      quotes: ["error", "double"],
+      quotes: [
+        "error",
+        "double",
+        { avoidEscape: true, allowTemplateLiterals: true },
+      ],
       "no-unused-vars": "error",
       "no-empty-function": "error",
       "no-redeclare": "error",

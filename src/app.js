@@ -1,10 +1,13 @@
 import Express from "express";
 import env from "dotenv";
+
 import { initializeDB } from "./database/index.js";
+import { router } from "./route/index.js";
+import * as util from "./utils/index.js";
 
 env.config();
 
-const app = Express();
+export const app = Express();
 
 app.use(
   Express.urlencoded({
@@ -14,13 +17,17 @@ app.use(
 
 app.use(Express.json());
 
+app.use("/api", router);
+
 app.listen(Number(process.env.PORT) || 3333, () => {
-  console.log(`Server is listening in the port ${process.env.PORT || 3333}`);
+  util.logger.info(
+    `Server is listening in the port ${process.env.PORT || 3333}`,
+  );
   initializeDB()
     .then(() => {
-      console.log("Database connected!!");
+      util.logger.info("Database connected!!");
     })
     .catch((err) => {
-      console.log(`Error while connecting to DB ${err.message}`);
+      util.logger.info(`Error while connecting to DB ${err.message}`);
     });
 });

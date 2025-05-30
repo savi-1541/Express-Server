@@ -10,7 +10,8 @@
       "name": "Express Server",
       "skipFiles": ["<node_internals>/**"],
       "preLaunchTask": "lint-and-format",
-      "program": "${workspaceFolder}\\src\\app.js"
+      "program": "${workspaceFolder}\\src\\app.js",
+      "console": "integratedTerminal"
     }
   ]
 }
