@@ -4,6 +4,7 @@ import env from "dotenv";
 import { initializeDB } from "./database/index.js";
 import { router } from "./route/index.js";
 import * as util from "./utils/index.js";
+import middleware from "./middleware/index.js";
 
 env.config();
 
@@ -18,6 +19,7 @@ app.use(
 app.use(Express.json());
 
 app.use("/api", router);
+app.use(middleware.expressErrorHandler);
 
 app.listen(Number(process.env.PORT) || 3333, () => {
   util.logger.info(

@@ -20,8 +20,6 @@ export default defineConfig([
       "no-empty-function": "error",
       "no-redeclare": "error",
       semi: "error",
-      indent: ["error", 2],
-      "consistent-return": "error",
       "prefer-const": "error",
       "no-var": "error",
       "comma-dangle": ["error", "always-multiline"],
