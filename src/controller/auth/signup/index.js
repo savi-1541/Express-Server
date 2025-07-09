@@ -15,6 +15,7 @@ export const createAccount = async (req, res, next) => {
     const token = helper.generateToken({
       _id: userData._id,
       name: userData.name,
+      isAuthor: payload.isAuthor,
     });
 
     utils.logger.info(`Token generated successfully sending response`);

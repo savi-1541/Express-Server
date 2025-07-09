@@ -29,7 +29,7 @@ export const validateUser = async (payload) => {
   );
 
   if (!isValidPassword)
-    throw new Error(utils.ERR_MESSAGE_CODES.INVALID_USER_NAME);
+    throw new Error(utils.ERR_MESSAGE_CODES.INCORRECT_PASSWORD);
 
   delete userInfo._doc.password;
   return userInfo;
