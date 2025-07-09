@@ -9,6 +9,7 @@ export const ERR_MESSAGE_CODES = {
   INVALID_TOKEN: "INVALID_TOKEN",
   TOKEN_MISSING: "TOKEN_MISSING",
   ACCESS_DENIED: "ACCESS_DENIED",
+  CREATION_FAILED: "CREATION_FAILED",
 };
 
 export const errorHandler = (errCode) => {
@@ -50,6 +51,10 @@ export const errorHandler = (errCode) => {
     case ERR_MESSAGE_CODES.ACCESS_DENIED:
       errMessage.statusCode = 403;
       errMessage.message = "Access Denied";
+      break;
+    case ERR_MESSAGE_CODES.CREATION_FAILED:
+      errMessage.statusCode = 400;
+      errMessage.message = "Failed to add data";
       break;
     default:
     case ERR_MESSAGE_CODES.INTENRAL_SERVER_ERROR:
